@@ -22,3 +22,7 @@ go.work
 
 # Output binary directories
 bin/
+
+# logs
+logs/
+*.log
