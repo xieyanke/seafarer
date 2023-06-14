@@ -1,7 +1,8 @@
 package config
 
 type configuration struct {
-	App app `mapstructure:"app" yaml:"app"`
+	App    appConfig    `mapstructure:"app" yaml:"app"`
+	Logger LoggerConfig `mapstructure:"logger" yaml:"logger"`
 }
 
 var Config = new(configuration)

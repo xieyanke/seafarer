@@ -9,7 +9,7 @@ import (
 	"github.com/xieyanke/seafarer/config"
 )
 
-var configFile = "config.yaml"
+var configFile = "config/config.yaml"
 
 func InitializeConfig() *viper.Viper {
 	if configEnv := os.Getenv("SEAFARER_CONFIG"); configEnv != "" {
