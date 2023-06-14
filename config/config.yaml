@@ -1,0 +1,4 @@
+app:
+  name: seafarer
+  port: 8805
+  env: local
