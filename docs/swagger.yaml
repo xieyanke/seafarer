@@ -1,0 +1,27 @@
+info:
+  contact: {}
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+  title: Seafarer API
+  version: v0.1.0
+paths:
+  /ping:
+    get:
+      consumes:
+      - application/json
+      description: do ping
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            type: string
+      summary: ping...
+      tags:
+      - Demo
+securityDefinitions:
+  BasicAuth:
+    type: basic
+swagger: "2.0"

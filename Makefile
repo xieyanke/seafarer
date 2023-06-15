@@ -15,6 +15,11 @@ build:
 		-tags $(GO_BUILD_TAGS) ./cmd/main.go
 
 
+.PHONY: swaginit
+swaginit:
+	swag init -g cmd/main.go
+
+
 .PHONY: clean
 clean:
 	rm -rf bin logs
