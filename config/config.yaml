@@ -1,14 +1,26 @@
-app:
-  name: seafarer
-  port: 8805
-  env: local
+Server:
+  RunMode: release
+  HttpPort: 8805
+  ReadHeaderTimeout: 30 # unit: second
+  ReadTimeout: 30 # unit: second
+  WriteTImeout: 30 # unit: second
+  # MaxHeaderBytes: 1024  
 
-logger:
-  level: debug
-  dir: ./logs
-  filename: seafarer.log
-  max_size: 1024
-  max_backups: 5
-  max_days: 3
-  compress: true
+App:
+  Name: seafarer
+  PageSize: 10
+  MaxPageSize: 100
 
+Logger:
+  Level: debug
+  Dir: ./logs
+  Filename: seafarer.log
+  MaxSize: 1000  # unit: MB
+  MaxBackups: 5
+  MaxAge: 3  # unit: day
+  Compress: true
+
+Sqlite:
+  Dir: ./db
+  Filename: seafarer.db
+  
