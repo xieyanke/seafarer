@@ -24,10 +24,10 @@ const docTemplate = `{
             "get": {
                 "description": "do ping",
                 "consumes": [
-                    "application/json"
+                    "text/plain"
                 ],
                 "produces": [
-                    "application/json"
+                    "text/plain"
                 ],
                 "tags": [
                     "Demo"
@@ -56,7 +56,7 @@ var SwaggerInfo = &swag.Spec{
 	Version:          "v0.1.0",
 	Host:             "",
 	BasePath:         "",
-	Schemes:          []string{},
+	Schemes:          []string{"http"},
 	Title:            "Seafarer API",
 	Description:      "",
 	InfoInstanceName: "swagger",

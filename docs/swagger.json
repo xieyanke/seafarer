@@ -1,4 +1,7 @@
 {
+    "schemes": [
+        "http"
+    ],
     "swagger": "2.0",
     "info": {
         "title": "Seafarer API",
@@ -14,10 +17,10 @@
             "get": {
                 "description": "do ping",
                 "consumes": [
-                    "application/json"
+                    "text/plain"
                 ],
                 "produces": [
-                    "application/json"
+                    "text/plain"
                 ],
                 "tags": [
                     "Demo"
