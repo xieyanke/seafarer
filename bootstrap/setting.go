@@ -31,7 +31,7 @@ func SetupSetting() error {
 		return err
 	}
 
-	err = setting.ReadSection("Sqlite", &global.SqlSetting)
+	err = setting.ReadSection("Sqlite", &global.SqliteSetting)
 	if err != nil {
 		return err
 	}

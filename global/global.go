@@ -1,10 +1,17 @@
 package global
 
-import "github.com/xieyanke/seafarer/pkg/setting"
+import (
+	"github.com/xieyanke/seafarer/pkg/setting"
+	"go.uber.org/zap"
+)
 
 var (
 	ServerSetting *setting.ServerSetting
 	AppSetting    *setting.AppSetting
 	LoggerSetting *setting.LoggerSetting
-	SqlSetting    *setting.SqliteSetting
+	SqliteSetting *setting.SqliteSetting
+)
+
+var (
+	Logger *zap.Logger
 )
