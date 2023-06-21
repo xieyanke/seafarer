@@ -2,22 +2,23 @@ BINARY = seafarer
 GOOS = linux
 GOARCH = amd64
 GO_BUILD_TAGS = ""
+GO_BUILD_LDFLAGS = "-s -w"
 
 
 .PHONY: run
 run:
-	go run cmd/main.go
+	go run main.go
 
 
 .PHONY: build
 build:
-	CGO_ENABLED=0 go build -trimpath -o ./bin/$(BINARY)_$(GOOS)_$(GOARCH) \
-		-tags $(GO_BUILD_TAGS) ./cmd/main.go
+	GOOS=$(GOOS) GOARCH=$(GOARCH) CGO_ENABLED=0 go build -ldflags $(GO_BUILD_LDFLAGS) -tags $(GO_BUILD_TAGS) -trimpath -o ./bin/$(BINARY)_$(GOOS)_$(GOARCH) \
+		 main.go
 
 
 .PHONY: swaginit
 swaginit:
-	swag init -g cmd/main.go
+	swag init
 
 
 .PHONY: clean
