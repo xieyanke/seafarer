@@ -10,6 +10,7 @@ import (
 
 var configFile = "config/config.yaml"
 
+
 func SetupSetting() error {
 	setting, err := setting.NewSetting(filepath.Dir(configFile), filepath.Base(configFile), "yaml")
 	if err != nil {

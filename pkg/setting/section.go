@@ -23,7 +23,8 @@ type LoggerSetting struct {
 	Level      string
 	Dir        string
 	Filename   string
-	MaxSize    string // unit: MB
+	Format     string // json or text
+	MaxSize    int    // unit: MB
 	MaxBackups int
 	MaxAge     int
 	Compress   bool

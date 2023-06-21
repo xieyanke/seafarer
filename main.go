@@ -8,6 +8,7 @@ import (
 
 func init() {
 	bootstrap.SetupSetting()
+	bootstrap.SetupLogger()
 }
 
 // @title         Seafarer API

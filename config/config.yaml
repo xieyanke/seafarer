@@ -1,5 +1,5 @@
 Server:
-  RunMode: release
+  RunMode: debug
   HttpPort: 8805
   ReadHeaderTimeout: 30 # unit: second
   ReadTimeout: 30 # unit: second
@@ -14,6 +14,7 @@ App:
 Logger:
   Level: debug
   Dir: ./logs
+  Format: text  # json or text
   Filename: seafarer.log
   MaxSize: 1000  # unit: MB
   MaxBackups: 5

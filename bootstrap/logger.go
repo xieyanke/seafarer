@@ -1,11 +1,12 @@
 package bootstrap
 
 import (
-	"github.com/xieyanke/seafarer/config"
-	"github.com/xieyanke/seafarer/internal/logger"
+	"github.com/xieyanke/seafarer/global"
+	"github.com/xieyanke/seafarer/pkg/logger"
+	"go.uber.org/zap"
 )
 
-func InitializeLogger() {
-	lg := logger.NewLogger(&config.Config.Logger)
-	lg.SetupLogger()
+func SetupLogger() {
+	l := logger.NewLogger(global.LoggerSetting, global.ServerSetting, global.AppSetting)
+	zap.ReplaceGlobals(l)
 }

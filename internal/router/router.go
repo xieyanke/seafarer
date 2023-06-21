@@ -1,11 +1,15 @@
 package router
 
 import (
+	"time"
+
+	ginZap "github.com/gin-contrib/zap"
 	"github.com/gin-gonic/gin"
-	swaggerfiles "github.com/swaggo/files"
+	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/xieyanke/seafarer/docs"
 	v1 "github.com/xieyanke/seafarer/internal/api/v1"
+	"go.uber.org/zap"
 )
 
 var (
@@ -14,8 +18,9 @@ var (
 
 func NewRouter() *gin.Engine {
 	r := gin.New()
-	r.Use(gin.Logger())
-	r.Use(gin.Recovery())
+
+	r.Use(ginZap.Ginzap(zap.L(), time.RFC3339, false))
+	r.Use(ginZap.RecoveryWithZap(zap.L(), true))
 
 	apiv1 := r.Group(apiVersion)
 
@@ -25,6 +30,6 @@ func NewRouter() *gin.Engine {
 	}
 
 	docs.SwaggerInfo.BasePath = apiVersion
-	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
 	return r
 }
