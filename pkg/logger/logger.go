@@ -85,10 +85,8 @@ func getLogLevel(logLevel string) zapcore.Level {
 		level = zap.PanicLevel
 	case "fatal":
 		level = zap.FatalLevel
-		// options = append(options, zap.AddStacktrace(level))
 	default:
 		level = zap.InfoLevel
-		// options = append(options, zap.AddStacktrace(level))
 	}
 
 	return level
