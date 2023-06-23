@@ -9,6 +9,7 @@ import (
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/xieyanke/seafarer/docs"
 	v1 "github.com/xieyanke/seafarer/pkg/api/v1"
+	"github.com/xieyanke/seafarer/ui"
 	"go.uber.org/zap"
 )
 
@@ -28,6 +29,8 @@ func NewRouter() *gin.Engine {
 		pingPtr := v1.NewPing()
 		apiv1.GET("/ping", pingPtr.Get)
 	}
+
+	ui.AddRoute(r)
 
 	docs.SwaggerInfo.BasePath = apiVersion
 	r.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerFiles.Handler))
