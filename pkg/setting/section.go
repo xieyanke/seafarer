@@ -5,7 +5,6 @@ import (
 )
 
 type ServerSetting struct {
-	RunMode           string
 	HttpPort          string
 	ReadHeaderTimeout time.Duration
 	ReadTimeout       time.Duration
@@ -15,6 +14,7 @@ type ServerSetting struct {
 
 type AppSetting struct {
 	Name        string
+	RunMode     string
 	PageSize    int
 	MaxPageSize int
 }

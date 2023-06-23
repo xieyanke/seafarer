@@ -11,8 +11,8 @@ import (
 	"gopkg.in/natefinch/lumberjack.v2"
 )
 
-func NewLogger(logSetting *setting.LoggerSetting, serverSetting *setting.ServerSetting, appSetting *setting.AppSetting) *zap.Logger {
-	core := newZapCore(logSetting, serverSetting)
+func NewLogger(logSetting *setting.LoggerSetting, appSetting *setting.AppSetting) *zap.Logger {
+	core := newZapCore(logSetting, appSetting)
 	caller := zap.AddCaller()
 
 	opts := zap.Fields(zap.String("application", appSetting.Name))
@@ -21,7 +21,7 @@ func NewLogger(logSetting *setting.LoggerSetting, serverSetting *setting.ServerS
 	return logger
 }
 
-func newZapCore(logSetting *setting.LoggerSetting, serverSetting *setting.ServerSetting) zapcore.Core {
+func newZapCore(logSetting *setting.LoggerSetting, appSetting *setting.AppSetting) zapcore.Core {
 	writer := lumberjack.Logger{
 		Filename:   fmt.Sprintf("%s/%s", logSetting.Dir, logSetting.Filename),
 		Compress:   logSetting.Compress,
@@ -30,7 +30,7 @@ func newZapCore(logSetting *setting.LoggerSetting, serverSetting *setting.Server
 		MaxAge:     logSetting.MaxAge,
 	}
 
-	encoder := newZapEncoder(logSetting.Format, serverSetting.RunMode)
+	encoder := newZapEncoder(logSetting.Format, appSetting.RunMode)
 	level := getLogLevel(logSetting.Level)
 	core := zapcore.NewCore(encoder,
 		zapcore.NewMultiWriteSyncer(os.Stdout, zapcore.AddSync(&writer)), level)

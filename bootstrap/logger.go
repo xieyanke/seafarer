@@ -7,6 +7,6 @@ import (
 )
 
 func SetupLogger() {
-	l := logger.NewLogger(global.LoggerSetting, global.ServerSetting, global.AppSetting)
+	l := logger.NewLogger(global.LoggerSetting, global.AppSetting)
 	zap.ReplaceGlobals(l)
 }
