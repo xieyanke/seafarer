@@ -8,7 +8,7 @@ import (
 	swaggerFiles "github.com/swaggo/files"
 	ginSwagger "github.com/swaggo/gin-swagger"
 	"github.com/xieyanke/seafarer/docs"
-	v1 "github.com/xieyanke/seafarer/internal/api/v1"
+	v1 "github.com/xieyanke/seafarer/pkg/api/v1"
 	"go.uber.org/zap"
 )
 
